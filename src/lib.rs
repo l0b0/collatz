@@ -1,4 +1,4 @@
-pub fn next(current: isize) -> isize {
+pub fn next(current: usize) -> usize {
     if current & 1 == 0 {
         current / 2
     } else {
@@ -20,5 +20,10 @@ mod tests {
     fn next_should_return_one_plus_three_times_input_for_odd_values() {
         assert_eq!(10, next(3));
         assert_eq!(16, next(5));
+    }
+
+    #[test]
+    fn next_should_allow_maximum_even_value() {
+        next(usize::max_value() - 1);
     }
 }
