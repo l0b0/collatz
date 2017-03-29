@@ -26,4 +26,10 @@ mod tests {
     fn next_should_allow_maximum_even_value() {
         next(usize::max_value() - 1);
     }
+
+    #[test]
+    #[should_panic(expected = "overflow")]
+    fn next_should_detect_overflow() {
+        next(usize::max_value());
+    }
 }
